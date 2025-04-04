@@ -1,0 +1,34 @@
+INSERT INTO Members (name, phone, email) VALUES
+
+('John Doe', '9876543210', 'john.doe@example.com'),
+
+('Alice Smith', '8765432109', 'alice.smith@example.com'),
+
+('Bob Johnson', '7654321098', 'bob.johnson@example.com'),
+
+('Emily Davis', '6543210987', 'emily.davis@example.com'),
+
+('Michael Brown', '5432109876', 'michael.brown@example.com');
+
+INSERT INTO Loans (book_id, member_id, loan_date, return_date) VALUES
+(3, 1, '2025-04-01', NULL), -- Book borrowed, not yet returned
+
+(5, 2, '2025-03-28', '2025-04-03'),
+
+(1, 3, '2025-03-30', NULL), -- Book borrowed, not yet returned
+
+(4, 4, '2025-03-25', '2025-03-31');
+
+
+
+SELECT Books.book_id, Books.title, Members.name AS Borrower, 
+
+Loans.loan_dateb
+
+FROM Books 
+
+JOIN Loans ON Books.book_id = Loans.book_id 
+
+JOIN Members ON Loans.member_id = Members.member_id
+
+WHERE Books.status = 'Borrowed';4. Implementation & Results 
